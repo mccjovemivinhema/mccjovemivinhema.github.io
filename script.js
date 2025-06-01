@@ -1,14 +1,16 @@
-console.log("hello world")
-
 // https://docs.google.com/spreadsheets/d/1oLSDoPsxTmbXAaohCnrc14ngVLursBJoEpezFsk9s9k/edit?usp=sharing
 
 const sheetId = "1oLSDoPsxTmbXAaohCnrc14ngVLursBJoEpezFsk9s9k"
 const sheetName = "referencia"
 const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
 
-const resposta = await fetch(sheetURL)
-const csvText = await resposta.text()
-const valores = await handleResponse(csvText)
+async function obterDados() {
+  const resposta = await fetch(sheetURL)
+  const csvText = await resposta.text()
+  const valores = await handleResponse(csvText)
+
+  console.log(valores)
+}
 
 async function handleResponse(csvText) {
   console.log(csvText)
@@ -40,3 +42,5 @@ async function csvToObjects(csv) {
 function csvSplit(row) {
   return row.split(",").map((val) => val.substring(1, val.length - 1));
 }
+
+obterDados()

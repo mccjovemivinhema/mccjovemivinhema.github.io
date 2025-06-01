@@ -11,11 +11,16 @@ fetch(sheetURL)
     console.log(response)
     const valor =  response.text()
     console.log(valor)
+    return valor
 })
-.then((csvText) => handleResponse(csvText));
+.then((csvText) => {
+  const valor = handleResponse(csvText)
+  console.log(valor)
+  return valor
+});
 
 function handleResponse(csvText) {
-    console.log(csvText)
+  console.log(csvText)
   let sheetObjects = csvToObjects(csvText);
   // sheetObjects is now an Array of Objects
   console.log(sheetObjects);

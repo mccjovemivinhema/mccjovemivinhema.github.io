@@ -57,20 +57,31 @@ async function obterDados() {
 async function handleResponse(csvText) {
   let objetos = await csvToObjects(csvText);
 
+  contagemPorPessoa = await tratarRespostas(objetos)
+
+  console.log(contagemPorPessoa)
+}
+
+async function tratarRespostas(objetos) {
   contagemPorPessoa = {}
 
   for (let objeto of objetos) {
     for (let presencas of Object.values(objeto)[0]) {
       if (contagemPorPessoa[presencas]) {
-        contagemPorPessoa[presencas] = contagemPorPessoa[presencas] + 1
+        contagemPorPessoa[presencas] = {
+          presencas: contagemPorPessoa[presencas].presencas + 1,
+          dias: [...contagemPorPessoa[presencas].dias, Object.keys(objeto)]
+        }
       } else {
-        contagemPorPessoa[presencas] = 1
+        contagemPorPessoa[presencas] = {
+          presencas: 1,
+          dias: [Object.keys(objeto)]
+        }
       }
     }
   }
 
-  console.log(contagemPorPessoa)
-
+  return contagemPorPessoa
 }
 
 async function csvToObjects(csv) {

@@ -78,21 +78,24 @@ async function csvToObjects(csv) {
 
   const titulos = csvRows[0].split(",")
   
+  let objects = []
+  let linhaDividida = {}
 
-  let objects = [];
-
-  for (let i = 0, max = titulos.length; i < max; i++) {
-    if (titulos[i] === "\"\"") continue
+  for (let indiceTitulos = 0, max = titulos.length; indiceTitulos < max; indiceTitulos++) {
+    if (titulos[indiceTitulos] === "\"\"") continue
     
     let thisObject = {};
     const presencas = []
 
     for (let j = 1, max = csvRows.length; j < max; j++) {
-      let row = csvSplit(csvRows[j]);
+      if (linhaDividida[j] === undefined) {
+        linhaDividida[j] = csvSplit(csvRows[j]);
+      }
 
-      if (row[i] !== '') presencas.push(row[i]);
+      if (linhaDividida[indiceTitulos] !== '') presencas.push(linhaDividida[j][indiceTitulos]);
     }
-    thisObject[titulos[i]] = presencas
+    
+    thisObject[titulos[indiceTitulos]] = presencas
     objects.push(thisObject);
   }
 
@@ -103,15 +106,22 @@ function csvSplit(row) {
   return row.split(",").map((val) => val.substring(1, val.length - 1));
 }
 
+function redirecionarPaginaDadosCursilhista(cursilhista) {
+  localStorage.setItem("cursilhista", JSON.stringify(cursilhista))
+
+  window.location.href = "/cursilhistas/detalhes"
+}
+
 async function preencherInformacoesPagina() {
   const resposta = await obterDados()
-  console.log(resposta)
+
   const lista = document.getElementById("lista-cursilhistas")
 
   for (let cursilhista of resposta) {
     const elemento = document.createElement('li')
     elemento.classList.add("list-group-item", "d-flex", "justify-content-between", "font-weight-bold")
     elemento.style.cursor = "pointer"
+    elemento.onclick = () => redirecionarPaginaDadosCursilhista(cursilhista)
 
     const span = document.createElement('span')
     span.classList.add("pt-2")

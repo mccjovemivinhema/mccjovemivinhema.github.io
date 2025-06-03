@@ -24,7 +24,6 @@ if (item.padrinhoMadrinha1 !== '' && item.padrinhoMadrinha2 !== '') {
 nomeValor.textContent = item.nome
 dataAniversarioValor.textContent = item.dataAniversario
 cursilhoValor.textContent = item.cursilho
-quantidadePresencas.textContent = `Quantidade: ${item.presencas}`
 
 // lista de indicações e presenças
 Promise.allSettled([criarListaIndicacoes(), criarListaPresencas()])
@@ -51,6 +50,7 @@ async function criarListaIndicacoes() {
 
 async function criarListaPresencas() {
     if (item.dias) {
+        quantidadePresencas.textContent = `Quantidade: ${item.presencas}`
         for (let dia of item.dias) {
             const tr = document.createElement("tr")
             const td = document.createElement("td")
@@ -62,6 +62,7 @@ async function criarListaPresencas() {
             listaPresencas.appendChild(tr)
         }
     } else {
+        quantidadePresencas.textContent = `Quantidade: 0`
         const tr = document.createElement("tr")
         const td = document.createElement("td")
     

@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Início</a>
+                    <a class="nav-link active" aria-current="page" href="/">Início</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/cursilhistas">Cursilhistas</a>
@@ -28,57 +28,67 @@
             </div>
         </div>
     </nav>
-    <div class="pt-2 px-2">
-        <span class="text-uppercase fw-bold">Dados Cursilhista</span>
-        <div class="py-3">
+    <div class="container-fluid">
+      <div class="pt-2 px-2">
+          <span class="text-uppercase fw-bold">Dados Cursilhista</span>
+          <div class="py-3">
             <div class="row align-items-start">
-              <div class="col-sm-6 col-md-6 col-lg-3">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <span class="fw-bold">Nome: </span>
                 <span id="nomeValor"></span>
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-3">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <span class="fw-bold">Data:</span>
                 <span id="dataAniversarioValor"></span>
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-3">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <span class="fw-bold">Cursilho:</span>
                 <span id="cursilhoValor"></span>
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-3">
+              <div class="col-sm-12 col-md-6 col-lg-3">
                 <span class="fw-bold">Padrinho/Madrinha:</span>
                 <span id="padrinhoMadrinhaValor"></span>
               </div>
             </div>
           </div>
-    </div>
+      </div>
 
-    <div id="">
-        <div class="row p-4">
-            <div class="col-12 card mb-2 text-bg-dark">
-                <p class="fw-bold card-title" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Indicações</p>
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    <div class="card-body" id="indicacoes">
-                        <table class="table table-dark">
-                            <thead>
-                              <tr>
-                                <th scope="col" id="quantidadeIndicacoes"></th>
-                              </tr>
-                            </thead>
-                            <tbody id="listaIndicacoes">
-                            </tbody>
+      <div id="">
+          <div class="row p-4">
+              <div class="col-12 card mb-2 text-bg-dark" style="width: 100%;">
+                  <p class="fw-bold card-title" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Indicações <i class="bi bi-cursor-fill"></i></p>
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                      <div class="card-body" id="indicacoes">
+                          <table class="table table-dark table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col" id="quantidadeIndicacoes"></th>
+                                </tr>
+                              </thead>
+                              <tbody id="listaIndicacoes">
+                              </tbody>
                           </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 card">
-                <p class="fw-bold card-title" data-bs-toggle="collapse" role="button" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Presenças</p>
-                <div class="collapse multi-collapse" id="multiCollapseExample2">
-                    <div class="card-body">
-                        Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                    </div>
-                </div>
-            </div>
-        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12 card text-bg-light" style="width: 100%;">
+                  <p class="fw-bold card-title" data-bs-toggle="collapse" role="button" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Presenças a partir de <span class="text-success">23/03/2025 </span><i class="bi bi-cursor-fill"></i></p>
+                  <div class="collapse multi-collapse" id="multiCollapseExample2">
+                      <div class="card-body">
+                          <table class="table table-Light table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col" id="quantidadePresencas"></th>
+                                </tr>
+                              </thead>
+                              <tbody id="listaPresencas">
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
 </body>
 </html>

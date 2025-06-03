@@ -53,14 +53,20 @@
     </div>
 
     <div id="">
-        
-        <!-- <p class="" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</p> -->
-
         <div class="row p-4">
-            <div class="col-12 card mb-2">
+            <div class="col-12 card mb-2 text-bg-dark">
                 <p class="fw-bold card-title" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Indicações</p>
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
                     <div class="card-body" id="indicacoes">
+                        <table class="table table-dark">
+                            <thead>
+                              <tr>
+                                <th scope="col" id="quantidadeIndicacoes"></th>
+                              </tr>
+                            </thead>
+                            <tbody id="listaIndicacoes">
+                            </tbody>
+                          </table>
                     </div>
                 </div>
             </div>

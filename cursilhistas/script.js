@@ -10,16 +10,15 @@ const sheetURL2 = `https://docs.google.com/spreadsheets/d/${sheetId2}/gviz/tq?tq
 
 
 async function obterDados() {
-  const indicacoes = await obterIndicacoes()
   const resposta = await fetch(sheetURL)
   const csvText = await resposta.text()
   const valores = await tratarRequisicaoPresencas(csvText)
+  const indicacoes = await obterIndicacoes(valores)
 
-  console.log(indicacoes)
-  console.log(valores)
+  return indicacoes
 }
 
-async function obterIndicacoes() {
+async function obterIndicacoes(cursilhistas) {
   const resposta = await fetch(sheetURL2)
   const csvText = await resposta.text()
   const textoLimpo = csvText.replaceAll("\"", "")
@@ -35,7 +34,8 @@ async function obterIndicacoes() {
       cursilho: valores[2],
       padrinhoMadrinha1: valores[3],
       padrinhoMadrinha2: valores[4],
-      indicacoes: valores[20]
+      indicacoes: valores[20],
+      ...cursilhistas[valores[0]]
     }
 
     objetos.push(objeto)
@@ -59,12 +59,12 @@ async function tratarRespostas(objetos) {
       if (contagemPorPessoa[presencas]) {
         contagemPorPessoa[presencas] = {
           presencas: contagemPorPessoa[presencas].presencas + 1,
-          dias: [...contagemPorPessoa[presencas].dias, Object.keys(objeto)]
+          dias: [...contagemPorPessoa[presencas].dias, Object.keys(objeto)[0].replaceAll("\"", "")]
         }
       } else {
         contagemPorPessoa[presencas] = {
           presencas: 1,
-          dias: [Object.keys(objeto)]
+          dias: [Object.keys(objeto)[0].replaceAll("\"", "")]
         }
       }
     }
@@ -77,11 +77,12 @@ async function csvToObjects(csv) {
   const csvRows = csv.split("\n");
 
   const titulos = csvRows[0].split(",")
+  
 
   let objects = [];
 
   for (let i = 0, max = titulos.length; i < max; i++) {
-    if (titulos[i] === "\"\"") break
+    if (titulos[i] === "\"\"") continue
     
     let thisObject = {};
     const presencas = []
@@ -102,4 +103,17 @@ function csvSplit(row) {
   return row.split(",").map((val) => val.substring(1, val.length - 1));
 }
 
-obterDados()
+async function preencherInformacoesPagina() {
+  const resposta = await obterDados()
+  const lista = document.getElementById("lista-cursilhistas")
+  
+  for (let cursilhista of resposta) {
+    const elemento = document.createElement('li')
+    elemento.classList.add("list-group-item")
+    elemento.textContent = cursilhista.nome
+    lista.appendChild(elemento)
+  }
+
+}
+
+preencherInformacoesPagina()

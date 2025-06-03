@@ -105,6 +105,7 @@ function csvSplit(row) {
 
 async function preencherInformacoesPagina() {
   const resposta = await obterDados()
+  console.log(resposta)
   const lista = document.getElementById("lista-cursilhistas")
 
   for (let cursilhista of resposta) {
@@ -113,7 +114,9 @@ async function preencherInformacoesPagina() {
     elemento.style.cursor = "pointer"
 
     const span = document.createElement('span')
+    span.classList.add("pt-2")
     span.style.fontWeight = "bold"
+    span.style.fontSize = "15px"
     span.textContent = cursilhista.nome
     elemento.appendChild(span)
 

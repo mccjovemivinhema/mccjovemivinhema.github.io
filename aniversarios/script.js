@@ -21,7 +21,7 @@ async function obterDados() {
         const quantidadeDiasAteAniversario = aniversario[3]
 
         nomeValor.textContent = aniversario[0]
-        dataAniversarioValor.textContent = aniversario[2]
+        dataAniversarioValor.textContent = aniversario[1]
         diasValor.textContent = quantidadeDiasAteAniversario
 
         if (quantidadeDiasAteAniversario <= 3) {

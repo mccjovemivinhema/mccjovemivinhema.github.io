@@ -10,7 +10,7 @@ async function obterDados() {
     const tituloProximosAniversarios = document.getElementById("tituloProximosAniversarios")
     const listaAniversarios = document.getElementById("listaAniversarios")
 
-    tituloProximosAniversarios.textContent = `Pŕoximos Aniversários (${aniversarios.length})`
+    tituloProximosAniversarios.textContent = `Próximos Aniversários (${aniversarios.length})`
 
     for (let aniversario of aniversarios) {
         const tr = document.createElement("tr")

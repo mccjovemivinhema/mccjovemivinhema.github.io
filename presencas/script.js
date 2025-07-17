@@ -14,7 +14,7 @@ async function obterDados() {
         'Alex Sandro Aparecido da Silva',
         'Bruno Leal Colzani Rodrigues',
         'Bruno Zanesco Crivelaro',
-        'Diego dos Santos',
+        'Diego dos Santos Almeida',
         'Eloisa Fernandes Martins',
         'Jefferson de Moura Pedroso',
         'Melrrayne Buzzo',

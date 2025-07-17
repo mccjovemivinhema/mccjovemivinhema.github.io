@@ -54,6 +54,13 @@ async function obterDados() {
             presencasValor.style.backgroundColor = corPrimeiroLugar
             nomeValor.style.color = 'black'
             presencasValor.style.color = 'black'
+        } else if (listaNovos.includes(presenca[0])) {
+            nomeValor.style.backgroundColor = amareloClaro
+            presencasValor.style.backgroundColor = amareloClaro
+            nomeValor.style.color = 'black'
+            nomeValor.style.fontWeight = 'bold'
+            presencasValor.style.color = 'black'
+            presencasValor.style.fontWeight = 'bold'
         } else if (Number(presenca[1]) >= sessentaPorcento) {
             nomeValor.style.backgroundColor = corSessentaPorcento
             presencasValor.style.backgroundColor = corSessentaPorcento
@@ -74,13 +81,6 @@ async function obterDados() {
             presencasValor.style.backgroundColor = corTrintaPorcento
             nomeValor.style.color = 'black'
             presencasValor.style.color = 'black'
-        } else if (listaNovos.includes(presenca[0])) {
-            nomeValor.style.backgroundColor = amareloClaro
-            presencasValor.style.backgroundColor = amareloClaro
-            nomeValor.style.color = 'black'
-            nomeValor.style.fontWeight = 'bold'
-            presencasValor.style.color = 'black'
-            presencasValor.style.fontWeight = 'bold'
         } else if (Number(presenca[1]) < trintaPorcento) {
             nomeValor.style.backgroundColor = vermelhoCerejaClaro
             presencasValor.style.backgroundColor = vermelhoCerejaClaro

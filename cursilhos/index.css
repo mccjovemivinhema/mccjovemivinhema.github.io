@@ -1,0 +1,4 @@
+.imagens-cursilho {
+    display: flex;
+    flex-direction: column;
+}

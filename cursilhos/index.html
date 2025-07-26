@@ -38,105 +38,135 @@
     <div class="bg-dark px-0 pb-5 row m-0">
         <h5 class="text-light text-center pt-3 pb-3 fw-bold">Cursilhos para Jovens da Diocese de Naviraí</h5>
 
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/1 MCC.jpeg" alt="primeiro cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true" style="overflow-x: scroll; width: 2000px !important;">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div>
+                        <img id="imagem-fullscreen" src="imagens/1 MCC.jpeg" alt="primeiro cursilho jovem diocese naviraí" class="pe-none" width="250%"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(1)">
+            <img src="imagens/1 MCC.jpeg" alt="primeiro cursilho jovem diocese naviraí" class="img-thumbnail pe-none"/>
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">1º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">02 a 05 de Agosto de 2012</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/2 MCC.jpeg" alt="segundo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(2)">
+            <img src="imagens/2 MCC.jpeg" alt="segundo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">2º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">11 a 14 de Julho de 2013</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/3 MCC.jpeg" alt="terceiro cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(3)">
+            <img src="imagens/3 MCC.jpeg" alt="terceiro cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">3º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">10 a 13 de Outubro de 2013</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/4 MCC.jpeg" alt="quarto cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(4)">
+            <img src="imagens/4 MCC.jpeg" alt="quarto cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">4º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">19 a 22 de Junho de 2014</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/5 MCC.jpeg" alt="quinto cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(5)">
+            <img src="imagens/5 MCC.jpeg" alt="quinto cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">5º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">13 a 16 de Novembro de 2014</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/6 MCC.jpeg" alt="sexto cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(6)">
+            <img src="imagens/6 MCC.jpeg" alt="sexto cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">6º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">04 a 07 de Julho de 2015</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/7 MCC.jpeg" alt="sétimo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(7)">
+            <img src="imagens/7 MCC.jpeg" alt="sétimo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">7º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">12 a 15 de Novembro de 2015</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/8 MCC.jpeg" alt="oitavo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(8)">
+            <img src="imagens/8 MCC.jpeg" alt="oitavo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">8º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">01 a 04 de Dezembro de 2016</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/9 MCC.jpeg" alt="nono cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(9)">
+            <img src="imagens/9 MCC.jpeg" alt="nono cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">9º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">04 a 07 de Maio de 2017</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/10 MCC.jpeg" alt="décimo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(10)">
+            <img src="imagens/10 MCC.jpeg" alt="décimo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">10º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">07 a 10 de Julho de 2018</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/11 MCC.jpeg" alt="décimo primeiro cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(11)">
+            <img src="imagens/11 MCC.jpeg" alt="décimo primeiro cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">11º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">01 a 04 de Novembro de 2018</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/12 MCC.jpeg" alt="décimo segundo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(12)">
+            <img src="imagens/12 MCC.jpeg" alt="décimo segundo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">12º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">06 a 09 de Junho de 2019</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/13 MCC.jpeg" alt="décimo terceiro cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(13)">
+            <img src="imagens/13 MCC.jpeg" alt="décimo terceiro cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">13º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">21 a 24 de Novembro de 2019</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/14 MCC.jpeg" alt="décimo quarto cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(14)">
+            <img src="imagens/14 MCC.jpeg" alt="décimo quarto cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">14º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">30 de Junho a 03 de Julho de 2022</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/15 MCC.jpeg" alt="décimo quinto cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(15)">
+            <img src="imagens/15 MCC.jpeg" alt="décimo quinto cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">15º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">22 de Setembro de 2022</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/16 MCC.jpeg" alt="décimo sexto cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(16)">
+            <img src="imagens/16 MCC.jpeg" alt="décimo sexto cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">16º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">20 a 23 de Abril de 2023</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/17 MCC.png" alt="décimo sétimo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(17)">
+            <img src="imagens/17 MCC.png" alt="décimo sétimo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">17º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">07 a 10 de Setembro de 2023</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/18 MCC.jpeg" alt="décimo oitavo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(18)">
+            <img src="imagens/18 MCC.jpeg" alt="décimo oitavo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">18º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">23 a 26 de Maio de 2024</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/19 MCC.jpg" alt="décimo nono cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(19)">
+            <img src="imagens/19 MCC.jpg" alt="décimo nono cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">19º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">14 a 17 de Novembro de 2024</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
-        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12 pe-none">
-            <img src="imagens/20 MCC.jpg" alt="vigesimo cursilho jovem diocese naviraí" class="img-thumbnail">
+        <div class="imagens-cursilho col-lg-6 col-md-12 col-sm-12" data-bs-toggle="modal" data-bs-target="#fullscreenModal" onclick="abrirModal(20)">
+            <img src="imagens/20 MCC.jpg" alt="vigesimo cursilho jovem diocese naviraí" class="img-thumbnail pe-none">
             <span class="text-light text-center fw-bold mt-1" style="font-size: 14px">20º Cursilho para Jovens da Diocese de Naviraí</span>
             <span class="text-light text-center mb-2 fw-lighter" style="font-size: 13px">01 a 04 de Maio de 2025</span>
+            <i class="bi bi-arrows-angle-expand icone-expandir"></i>
         </div>
     </div>
     <div class="fixed-bottom d-lg-none d-xl-none d-xl-block">

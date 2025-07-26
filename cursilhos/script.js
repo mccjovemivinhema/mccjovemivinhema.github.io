@@ -1,3 +1,4 @@
+const modal = document.getElementById('modal')
 const imagemFullscreenComponent = document.getElementById('imagem-fullscreen')
 
 const imagensPaths = ['imagens/1 MCC.jpeg', 'imagens/2 MCC.jpeg', 'imagens/3 MCC.jpeg', 'imagens/4 MCC.jpeg', 'imagens/5 MCC.jpeg', 'imagens/6 MCC.jpeg', 'imagens/7 MCC.jpeg', 
@@ -8,5 +9,15 @@ const imagensPaths = ['imagens/1 MCC.jpeg', 'imagens/2 MCC.jpeg', 'imagens/3 MCC
 function abrirModal(imagemId) {
     if (imagemId <= imagensPaths.length) {
         imagemFullscreenComponent.src = imagensPaths[imagemId-1]
+    }
+}
+
+function aumentarTamanhoImagem() {
+    imagemFullscreenComponent.width += 100
+}
+
+function diminuirTamanhoImagem() {
+    if (imagemFullscreenComponent.width > modal.clientWidth + 50) {
+        imagemFullscreenComponent.width -= 100
     }
 }

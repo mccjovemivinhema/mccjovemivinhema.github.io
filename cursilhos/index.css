@@ -14,3 +14,32 @@
     border-top-right-radius: 18%; 
     border-bottom-left-radius: 20%;
 }
+
+.imagem-controles div:first-child {
+    position: fixed; 
+    font-size: 50px; 
+    top: 1%;
+    left: 1%;
+}
+
+.imagem-controle-fechar {
+    background-color: #000a; 
+    color: white; 
+    border-radius: 15%;
+}
+
+.imagem-controles-tamanho {
+    font-size: 40px;
+    position: fixed;
+    display: flex;
+    gap: 40px;
+    bottom: 0; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.imagem-controles-tamanho i {
+    background-color: #000a;
+    color: white;
+    border-radius: 15%;
+}

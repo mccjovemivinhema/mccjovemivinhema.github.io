@@ -1,4 +1,4 @@
-const sheetId = "1oLSDoPsxTmbXAaohCnrc14ngVLursBJoEpezFsk9s9k"
+const sheetId = "1O0pKiRTWTuaNd50Judj2HkjzBABPeDc0S9jNQNGCoko"
 const sheetName = "ranking"
 const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}`
 

@@ -4,6 +4,11 @@ if (item === null || item === undefined) {
     window.location.href = "/cursilhistas"
 }
 
+const sheetId = "1xEJLr4pbsElLjyDSBz0nqaKmpOuyYXyBm2KE0-B1ELQ"
+const sheetName = "tab"
+const sqlQuery = encodeURIComponent(`SELECT * WHERE A = '${item.nome}'`)
+const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&tq=${sqlQuery}`;
+
 const listaIndicacoes = item.indicacoes.split(";")
 
 const nomeValor = document.getElementById("nomeValor")
@@ -49,9 +54,11 @@ async function criarListaIndicacoes() {
 }
 
 async function criarListaPresencas() {
-    if (item.dias) {
-        quantidadePresencas.textContent = `Quantidade: ${item.presencas}`
-        for (let dia of item.dias) {
+    const dias = await obterDados()
+    
+    if (dias.length > 0) {
+        quantidadePresencas.textContent = `Quantidade: ${dias.length}`
+        for (let dia of dias) {
             const tr = document.createElement("tr")
             const td = document.createElement("td")
         
@@ -72,4 +79,36 @@ async function criarListaPresencas() {
     
         listaPresencas.appendChild(tr)
     }
+}
+
+//
+
+async function obterDados() {
+  const resposta = await fetch(sheetURL)
+  const csvText = await resposta.text()
+  const valores = await tratarRequisicaoPresencas(csvText)
+  return valores
+}
+
+async function tratarRequisicaoPresencas(csvText) {
+  const text = csvText.replaceAll("\"", "")
+  const objetos = await csvToObjects(text);
+
+  return objetos
+}
+
+async function csvToObjects(csv) {
+  const csvRows = csv.split("\n");
+
+  const titulos = csvRows[0].split(",")
+  const presencas = csvRows[1].split(",")
+  const diasPresencas = []
+
+  for (let [index, presenca] of presencas.entries()) {
+    if (presenca === 'TRUE' && titulos[index] !== '') {
+        diasPresencas.push(titulos[index])
+    }
+  }
+
+  return diasPresencas
 }

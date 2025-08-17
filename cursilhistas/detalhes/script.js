@@ -40,16 +40,18 @@ window.onload = function() {
 async function criarListaIndicacoes() {
     if (listaIndicacoes.length > 0 && listaIndicacoes[0] !== "Nenhuma indicação") {
         quantidadeIndicacoes.textContent = `${listaIndicacoes.length} indicações`
-    }
     
-    for (let indicacao of listaIndicacoes) {
-        const tr = document.createElement("tr")
-        const td = document.createElement("td")
-    
-        td.textContent = indicacao
-    
-        tr.appendChild(td)
-        indicacoes.appendChild(tr)
+        for (let indicacao of listaIndicacoes) {
+            const tr = document.createElement("tr")
+            const td = document.createElement("td")
+        
+            td.textContent = indicacao
+        
+            tr.appendChild(td)
+            indicacoes.appendChild(tr)
+        }
+    } else {
+        quantidadeIndicacoes.textContent = 'Nenhuma indicação'
     }
 }
 
@@ -59,26 +61,24 @@ async function criarListaPresencas() {
     if (dias.length > 0) {
         quantidadePresencas.textContent = `Quantidade: ${dias.length}`
         for (let dia of dias) {
-            const tr = document.createElement("tr")
-            const td = document.createElement("td")
-        
-            td.textContent = dia
-        
-            tr.appendChild(td)
+            const tr = criarElementoDiaPresenca(dia)
         
             listaPresencas.appendChild(tr)
         }
     } else {
         quantidadePresencas.textContent = `Quantidade: 0`
-        const tr = document.createElement("tr")
-        const td = document.createElement("td")
-    
-        td.textContent = "Nenhuma presença"
-    
-        tr.appendChild(td)
-    
+        const tr = criarElementoDiaPresenca("Nenhuma presença")
+
         listaPresencas.appendChild(tr)
     }
+}
+
+function criarElementoDiaPresenca(dia) {
+    const tr = document.createElement("tr")
+    const td = document.createElement("td")
+    td.textContent = dia
+    tr.appendChild(td)
+    return tr
 }
 
 //

@@ -7,7 +7,7 @@ const imagensPaths = ['imagens/1 MCC.jpeg', 'imagens/2 MCC.jpeg', 'imagens/3 MCC
 ]
 
 function abrirModal(imagemId) {
-    if (imagemId <= imagensPaths.length) {
+    if (imagemId > 0 && imagemId <= imagensPaths.length) {
         imagemFullscreenComponent.src = imagensPaths[imagemId-1]
     }
 }

@@ -50,48 +50,34 @@ async function obterDados() {
         presencasValor.textContent = presenca[1]
 
         if (Number(presenca[1]) === maiorQuantidadePresencas) {
-            nomeValor.style.backgroundColor = corPrimeiroLugar
-            presencasValor.style.backgroundColor = corPrimeiroLugar
-            nomeValor.style.color = 'black'
-            presencasValor.style.color = 'black'
+            estilizarLinhaPorPorcentualPresenca(nomeValor, presencasValor, corPrimeiroLugar)
         } else if (listaNovos.includes(presenca[0])) {
-            nomeValor.style.backgroundColor = amareloClaro
-            presencasValor.style.backgroundColor = amareloClaro
-            nomeValor.style.color = 'black'
             nomeValor.style.fontWeight = 'bold'
-            presencasValor.style.color = 'black'
             presencasValor.style.fontWeight = 'bold'
+            estilizarLinhaPorPorcentualPresenca(nomeValor, presencasValor, amareloClaro)
         } else if (Number(presenca[1]) >= sessentaPorcento) {
-            nomeValor.style.backgroundColor = corSessentaPorcento
-            presencasValor.style.backgroundColor = corSessentaPorcento
-            nomeValor.style.color = 'black'
-            presencasValor.style.color = 'black'
+            estilizarLinhaPorPorcentualPresenca(nomeValor, presencasValor, corSessentaPorcento)
         } else if (Number(presenca[1]) >= ciquentaPorcento) {
-            nomeValor.style.backgroundColor = corCiquantaPorcento
-            presencasValor.style.backgroundColor = corCiquantaPorcento
-            nomeValor.style.color = 'black'
-            presencasValor.style.color = 'black'
+            estilizarLinhaPorPorcentualPresenca(nomeValor, presencasValor, corCiquantaPorcento)
         } else if (Number(presenca[1]) >= quarentaPorcento) {
-            nomeValor.style.backgroundColor = corQuarentaPorcento
-            presencasValor.style.backgroundColor = corQuarentaPorcento
-            nomeValor.style.color = 'black'
-            presencasValor.style.color = 'black'
+            estilizarLinhaPorPorcentualPresenca(nomeValor, presencasValor, corQuarentaPorcento)
         } else if (Number(presenca[1]) >= trintaPorcento) {
-            nomeValor.style.backgroundColor = corTrintaPorcento
-            presencasValor.style.backgroundColor = corTrintaPorcento
-            nomeValor.style.color = 'black'
-            presencasValor.style.color = 'black'
+            estilizarLinhaPorPorcentualPresenca(nomeValor, presencasValor, corTrintaPorcento)
         } else if (Number(presenca[1]) < trintaPorcento) {
-            nomeValor.style.backgroundColor = vermelhoCerejaClaro
-            presencasValor.style.backgroundColor = vermelhoCerejaClaro
-            nomeValor.style.color = 'black'
-            presencasValor.style.color = 'black'
+            estilizarLinhaPorPorcentualPresenca(nomeValor, presencasValor, vermelhoCerejaClaro)
         }
 
         tr.appendChild(nomeValor)
         tr.appendChild(presencasValor)
         listaPresencas.appendChild(tr)
     }
+}
+
+function estilizarLinhaPorPorcentualPresenca(nomeComponente, presencaComponente, cor) {
+    nomeComponente.style.backgroundColor = cor
+    presencaComponente.style.backgroundColor = cor
+    nomeComponente.style.color = 'black'
+    presencaComponente.style.color = 'black'
 }
 
 async function tratarRequisicaoPresencas(csvText) {

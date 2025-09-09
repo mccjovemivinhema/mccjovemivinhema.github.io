@@ -20,9 +20,11 @@ async function obterDados() {
     return await tratarRequisicaoDias(csvText)
 }
 
+const botaoAbrirModal = document.getElementById('abrirModal')
+const atividadeTitulo = document.querySelector('.atividade-titulo')
+
 async function carregarCalendario() {
         const eventos = await obterDados()
-        console.log(eventos)
 
         const calendarEl = document.getElementById('calendar')
         const calendar = new FullCalendar.Calendar(calendarEl, {
@@ -33,10 +35,9 @@ async function carregarCalendario() {
             },
           locale: 'pt-br',
           height: 'auto',
-          events: eventos
+          events: eventos,
+          eventClick: (info) => abrirModal(info)
         })
-
-        
 
         calendar.render()
       }
@@ -48,6 +49,11 @@ async function tratarRequisicaoDias(csvText) {
     const objetos = await csvToObjects(csvText);
   
     return objetos
+}
+
+function abrirModal(info) {
+    atividadeTitulo.textContent = info.event.title
+    botaoAbrirModal.click()
 }
 
 async function csvToObjects(csv) {
@@ -77,7 +83,7 @@ async function csvToObjects(csv) {
 
         const momento = moment(dataPorExtenso, "DD/MM/YYYY", "pt-br");
 
-        if (dias.length === 0 && divisao.length > 1 || (divisao.length > 1 && dias.length > 0 && dias[dias.length - 1].title !== divisao[1].trim())) {
+        if (dias.length === 0 && divisao.length > 1 || (divisao.length > 1 && dias.length > 0 && dias[dias.length - 1].title !== divisao[1].trim())) {            
             dias.push({
                 id: indice,
                 title: divisao[1].trim(),
@@ -86,5 +92,5 @@ async function csvToObjects(csv) {
         }
     }
 
-    return dias.slice(2);
+    return dias;
 }

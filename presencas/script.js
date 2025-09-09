@@ -11,17 +11,16 @@ async function obterDados() {
     let maiorQuantidadePresencas = 0
 
     const listaNovos = [
-        'Alex Sandro Aparecido da Silva',
-        'Bruno Leal Colzani Rodrigues',
-        'Bruno Zanesco Crivelaro',
-        'Diego dos Santos Almeida',
-        'Eloisa Fernandes Martins',
-        'Jefferson de Moura Pedroso',
-        'Melrrayne Buzzo',
-        'Naana Maria Rodrigues Ferreira',
-        'Nicolas Rodrigues Oliveira',
-        'Pablo Iguinans Pires Magri',
-        'Wyldem Barg Veríssimo da Silva'
+        'Carla Louzada',
+        'Daniela Nogueira',
+        'Elizabeth Medrado Alsamendia',
+        'Geovana Moreira Carminati',
+        'Leandro Achar Fontoura',
+        'Maria Vitória Tavares',
+        'Pdro Henrique Gomes da Silva',
+        'Rodrigo Santos Novais',
+        'Ruslan Lourencone Nunes',
+        'Stefani Francini Moreira Azevedo'
     ]
 
     if (presencas.length > 0) {

@@ -17,7 +17,7 @@ async function obterDados() {
         'Geovana Moreira Carminati',
         'Leandro Achar Fontoura',
         'Maria Vitória Tavares',
-        'Pdro Henrique Gomes da Silva',
+        'Pedro Henrique Gomes da Silva',
         'Rodrigo Santos Novais',
         'Ruslan Lourencone Nunes',
         'Stefani Francini Moreira Azevedo'

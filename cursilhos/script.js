@@ -3,7 +3,7 @@ const imagemFullscreenComponent = document.getElementById('imagem-fullscreen')
 
 const imagensPaths = ['imagens/1 MCC.jpeg', 'imagens/2 MCC.jpeg', 'imagens/3 MCC.jpeg', 'imagens/4 MCC.jpeg', 'imagens/5 MCC.jpeg', 'imagens/6 MCC.jpeg', 'imagens/7 MCC.jpeg', 
     'imagens/8 MCC.jpeg', 'imagens/9 MCC.jpeg', 'imagens/10 MCC.jpeg', 'imagens/11 MCC.jpeg', 'imagens/12 MCC.jpeg', 'imagens/13 MCC.jpeg', 'imagens/14 MCC.jpeg', 'imagens/15 MCC.jpeg',
-    'imagens/16 MCC.jpeg', 'imagens/17 MCC.png', 'imagens/18 MCC.jpeg', 'imagens/19 MCC.jpg', 'imagens/20 MCC.jpg'
+    'imagens/16 MCC.jpeg', 'imagens/17 MCC.png', 'imagens/18 MCC.jpeg', 'imagens/19 MCC.jpg', 'imagens/20 MCC.jpg', 'imagens/21 MCC.jpg'
 ]
 
 function abrirModal(imagemId) {

@@ -1,18 +1,56 @@
-// retornar os dias mais o nome da coluna
-// Coluna 28 - 28%6 = 2
-// Então nome da coluna vai ser ZB, porque Z é a letra 26 e B é a letra 2
-
 const sheetId = "1xEJLr4pbsElLjyDSBz0nqaKmpOuyYXyBm2KE0-B1ELQ"
 const sheetName = "tab"
-// const dia = 'Dia 27 de Julho de 2025 - Escola Vivencial conduzido pelo Lucas Tobias e Taynara'
-// const sqlQuery = encodeURIComponent(`SELECT '${dia}', SUM(B) WHERE D = true GROUP BY '${dia}' pivot A`)
-// const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&tq=${sqlQuery}`;
-// console.log(sheetURL)
-// const listaIndicacoes = item.indicacoes.split(";")
 
 const sqlQuery = encodeURIComponent(`SELECT * WHERE A = 'Cursilhistas'`)
 const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&tq=${sqlQuery}`;
 
+const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+const botaoAbrirModal = document.getElementById('abrirModal')
+const atividadeTitulo = document.querySelector('.atividade-titulo')
+const atividadeData = document.querySelector('.atividade-data')
+const cursilhistasPresentes = document.querySelector('.cursilhistas-presentes')
+
+async function carregarCalendario() {
+    const eventos = await obterDados()
+
+    const calendarEl = document.getElementById('calendar')
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        themeSystem: 'bootstrap5',
+        headerToolbar: {
+            right: 'prev,next'
+        },
+        locale: 'pt-br',
+        height: 'auto',
+        events: eventos,
+        eventClick: (info) => abrirModal(info)
+    })
+
+    calendar.render()
+}
+
+carregarCalendario()
+
+async function abrirModal(info) {
+    atividadeTitulo.textContent = info.event.title
+    atividadeData.textContent = info.event.extendedProps.dataPorExtenso
+    botaoAbrirModal.click()
+
+    const listaCursilhistasPresentes = await obterCursilhistasPresentes(info)
+    let texto = ""
+
+    for (let i = 0; i < listaCursilhistasPresentes.length; i++) {
+        texto += `<b>${i+1}</b> - ` + listaCursilhistasPresentes[i] + "<br/>"
+    }
+
+    cursilhistasPresentes.innerHTML = `${texto}`
+}
+
+function limparModal() {
+    atividadeTitulo.textContent = ""
+    cursilhistasPresentes.textContent = ""
+}
 
 async function obterDados() {
     const resposta = await fetch(sheetURL)
@@ -20,44 +58,25 @@ async function obterDados() {
     return await tratarRequisicaoDias(csvText)
 }
 
-const botaoAbrirModal = document.getElementById('abrirModal')
-const atividadeTitulo = document.querySelector('.atividade-titulo')
-
-async function carregarCalendario() {
-        const eventos = await obterDados()
-
-        const calendarEl = document.getElementById('calendar')
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          themeSystem: 'bootstrap5',
-            headerToolbar: {
-                right: 'prev,next'
-            },
-          locale: 'pt-br',
-          height: 'auto',
-          events: eventos,
-          eventClick: (info) => abrirModal(info)
-        })
-
-        calendar.render()
-      }
-
-      carregarCalendario()
-
-
 async function tratarRequisicaoDias(csvText) {
     const objetos = await csvToObjects(csvText);
   
     return objetos
 }
 
-function abrirModal(info) {
-    atividadeTitulo.textContent = info.event.title
-    botaoAbrirModal.click()
+async function obterCursilhistasPresentes(info) {
+    const dia = info.event.extendedProps.description
+    const sqlQuery = encodeURIComponent(`SELECT '${dia}', SUM(B) WHERE \`${info.event.id}\` = true GROUP BY '${dia}' pivot A`)
+    const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${sheetName}&tq=${sqlQuery}`
+    const resposta = await fetch(sheetURL)
+    const texto = await resposta.text()
+    const cursilhistasPresentes = texto.split("\n")[0].replaceAll("\"", "").split(",").slice(1)
+    
+    return cursilhistasPresentes
 }
 
 async function csvToObjects(csv) {
-    csv = csv.replaceAll("\"", "")
+    const csvAlterado = csv.replaceAll("\"", "")
         .replaceAll("Dia ", "")
         .replaceAll("Janeiro", "01")
         .replaceAll("Fevereiro", "02")
@@ -72,7 +91,8 @@ async function csvToObjects(csv) {
         .replaceAll("Novembro", "11")
         .replaceAll("Dezembro", "12")
 
-    const csvRows = csv.split(",");
+    const csvRows = csvAlterado.split(",");
+    csv = csv.split(",");
     let dias = []
   
     for (let indice = 0, max = csvRows.length; indice < max; indice++) {
@@ -85,12 +105,27 @@ async function csvToObjects(csv) {
 
         if (dias.length === 0 && divisao.length > 1 || (divisao.length > 1 && dias.length > 0 && dias[dias.length - 1].title !== divisao[1].trim())) {            
             dias.push({
-                id: indice,
+                id: obterId(indice),
                 title: divisao[1].trim(),
+                description: csv[indice].trim().replaceAll("\"", ""),
+                dataPorExtenso: dataPorExtenso,
                 start: momento.format("YYYY-MM-DD")
             });
         }
     }
 
     return dias;
+}
+
+function obterId(indice) {
+    let id = ""
+    if (indice < alfabeto.length) {
+        id = alfabeto[indice]
+    } else {
+        const primeiraLetra = alfabeto[Math.floor(indice / alfabeto.length) - 1]
+        const segundaLetra = alfabeto[indice % alfabeto.length]
+        id = primeiraLetra + segundaLetra
+    }
+
+    return id
 }

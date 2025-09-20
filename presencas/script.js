@@ -11,7 +11,7 @@ async function obterDados() {
     let maiorQuantidadePresencas = 0
 
     const listaNovos = [
-        'Carla Louzada',
+        'Carla Terezinha Louzada da Silva',
         'Daniela Nogueira',
         'Elizabeth Medrado Alsamendia',
         'Geovana Moreira Carminati',
